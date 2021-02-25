@@ -18,12 +18,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun setListeners() {
         var clickableViews = listOf(
-                binding.boxOneText,
-                binding.boxTwoText,
-                binding.boxThreeText,
-                binding.boxFoureText,
-                binding.boxFiveText,
-                binding.constraintLayout)
+            binding.boxOneText,
+            binding.boxTwoText,
+            binding.boxThreeText,
+            binding.boxFoureText,
+            binding.boxFiveText,
+            binding.constraintLayout,
+            binding.redButton,
+            binding.greenButton,
+            binding.yellowButton)
 
         for (view in clickableViews) {
             view.setOnClickListener { setViewColor(it) }
@@ -37,6 +40,9 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three_text -> view.setBackgroundResource(android.R.color.holo_green_light)
             R.id.box_foure_text -> view.setBackgroundResource(android.R.color.holo_green_dark)
             R.id.box_five_text -> view.setBackgroundResource(android.R.color.holo_green_light)
+            R.id.red_button -> binding.boxThreeText.setBackgroundResource(R.color.red)
+            R.id.green_button -> binding.boxFoureText.setBackgroundResource((R.color.green))
+            R.id.yellow_button -> binding.boxFiveText.setBackgroundResource(R.color.yellow)
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
