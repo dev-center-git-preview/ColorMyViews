@@ -4,21 +4,26 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.colormyviews.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(this.layoutInflater)
+        setContentView(binding.root)
         setListeners()
     }
 
     private fun setListeners() {
-        var clickableViews = listOf<View>(
-                findViewById(R.id.box_one_text),
-                findViewById(R.id.box_two_text),
-                findViewById(R.id.box_three_text),
-                findViewById(R.id.box_foure_text),
-                findViewById(R.id.box_five_text))
+        var clickableViews = listOf(
+                binding.boxOneText,
+                binding.boxTwoText,
+                binding.boxThreeText,
+                binding.boxFoureText,
+                binding.boxFiveText,
+                binding.constraintLayout)
 
         for (view in clickableViews) {
             view.setOnClickListener { setViewColor(it) }
@@ -32,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             R.id.box_three_text -> view.setBackgroundResource(android.R.color.holo_green_light)
             R.id.box_foure_text -> view.setBackgroundResource(android.R.color.holo_green_dark)
             R.id.box_five_text -> view.setBackgroundResource(android.R.color.holo_green_light)
-            else -> view.setBackgroundColor(Color.GRAY)
+            else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
 }
